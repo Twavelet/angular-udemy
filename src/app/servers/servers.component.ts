@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,6 +11,8 @@ export class ServersComponent {
   serverCreationStatus: string = "No server created yet";
   serverName: string = ''
   userName: string = ''
+  paragraph: boolean = false
+  clickCount: Array<number> = [0]
 
   constructor(){
     setTimeout(()=> this.allowNewServer = true, 2000)
@@ -25,5 +28,11 @@ export class ServersComponent {
 
   clearUsername(){
     this.userName = ''
+  }
+  displayParagraph(){
+    this.paragraph = !this.paragraph;
+    this.clickCount.push(this.clickCount[this.clickCount.length-1] + 1)
+    console.log(this.clickCount[this.clickCount.length-1])
+    console.log(this.clickCount)
   }
 }

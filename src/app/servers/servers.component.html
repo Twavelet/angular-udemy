@@ -12,8 +12,12 @@
 <!-- <h3>{{ serverName }}</h3> -->
 <app-server></app-server>
 <app-server></app-server>
-
+<hr>
 <label>Add Username</label>
 <input type="text" class="form-control" [(ngModel)]="userName"/>
 <h4>{{userName}}</h4>
 <button class="btn btn-primary" (click)="clearUsername()" [disabled]="!userName">{{!userName ? "Add Username" : "Clear username"}}</button>
+<hr>
+<button class="btn btn-secondary" (click)="displayParagraph()">Display Details</button>
+<p *ngIf="paragraph">content to be added eventually</p>
+<p *ngFor="let count in clickCount">count</p>
